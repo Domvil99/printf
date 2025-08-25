@@ -4,6 +4,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
+/*
 int main(void)
 {
     char str[50] = "Hola Mundo";
@@ -12,7 +13,7 @@ int main(void)
     printf("Cadena después de ft_bzero: %s\n", str);
     return 0;
 }
-/*
+
 int	main(void)
 {
     char str[] = "Hola Mundo!";

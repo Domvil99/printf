@@ -1,8 +1,8 @@
 NAME        = libftprintf.a
 
-SRC         = ft_printf.c handle_format.c parse_format.c print_char.c print_str.c print_int.c \
-              print_unsigned.c print_hex.c print_pointer.c print_binary.c print_n.c print_reverse.c
-
+SRC = ft_printf.c handle_format.c parse_format.c print_char.c print_str.c print_int.c \
+      print_unsigned.c print_hex.c print_pointer.c
+	  
 BONUS_SRC   = handle_format_bonus.c parse_format_bonus.c print_char_bonus.c \
               print_str_bonus.c print_int_bonus.c print_unsigned_bonus.c \
               print_hex_bonus.c print_pointer_bonus.c print_binary_bonus.c \

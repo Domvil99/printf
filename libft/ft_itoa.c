@@ -6,7 +6,9 @@ static size_t	ft_numlen(int n)
 
     len = 1;
     if(n > 0)
+    {
         len = 0;
+    }
 	while(n)
 	{
 		len++;

@@ -4,7 +4,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 typedef struct s_format
 {
@@ -25,5 +25,11 @@ int	parse_format(const char *format, t_format *f);
 int	print_char(va_list args, t_format f);
 int	print_str(va_list args, t_format f);
 int	print_int(va_list args, t_format f);
+int	print_unsigned(va_list args, t_format f);
+int	print_hex(va_list args, t_format f);
+int	print_pointer(va_list args, t_format f);
+int	print_binary(va_list args, t_format f);
+int	print_n(va_list args, int printed_so_far);
+int	print_reverse(va_list args, t_format f);
 
 #endif
