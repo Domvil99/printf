@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "libft/libft.h"
 #include "ft_printf.h"
 
 static int	is_flag(char c)
