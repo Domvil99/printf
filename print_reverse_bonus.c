@@ -1,20 +1,25 @@
-#include "ft_printf_bonus.h"
+#include <unistd.h>    /* write() */
+#include <stdlib.h>    /* NULL */
+#include "libft/libft.h" /* ft_strlen() */
+#include "ft_printf.h"
 
-int	print_reverse(t_format f, va_list args)
+int print_reverse(va_list args, t_format f)
 {
 	char	*str;
 	int		str_len;
 	int		effective_len;
 	int		padding;
 	int		printed;
+	int		i;
 
+	/* Obtener la cadena y manejar NULL */
 	str = va_arg(args, char *);
 	if (!str)
 		str = "(null)";
 
-	// Convertimos ft_strlen a int para evitar conflictos de tipo
+	/* Longitud real y ajustada por precisión */
 	str_len = (int)ft_strlen(str);
-	if (f.precision >= 0 && f.precision < str_len)
+	if (f.has_precision && f.precision < str_len)
 		effective_len = f.precision;
 	else
 		effective_len = str_len;
@@ -22,19 +27,23 @@ int	print_reverse(t_format f, va_list args)
 	padding = 0;
 	printed = 0;
 
-	// Si no hay flag '-', imprimimos espacios antes
-	if (!f.minus)
+	/* Espacios antes si no hay alineación izquierda */
+	if (!f.left_align)
 	{
 		while (padding++ < f.width - effective_len)
 			printed += write(1, " ", 1);
 	}
 
-	// Imprimimos la cadena en orden inverso, respetando la precisión
-	for (int i = effective_len - 1; i >= 0; i--)
+	/* Imprime en orden inverso */
+	i = effective_len - 1;
+	while (i >= 0)
+	{
 		printed += write(1, &str[i], 1);
+		--i;
+	}
 
-	// Si hay flag '-', imprimimos espacios después
-	if (f.minus)
+	/* Espacios después si hay alineación izquierda */
+	if (f.left_align)
 	{
 		while (padding++ < f.width - effective_len)
 			printed += write(1, " ", 1);

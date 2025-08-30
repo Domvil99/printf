@@ -2,6 +2,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft/libft.h"
@@ -30,6 +31,6 @@ int	print_hex(va_list args, t_format f);
 int	print_pointer(va_list args, t_format f);
 int	print_binary(va_list args, t_format f);
 int	print_n(va_list args, int printed_so_far);
-int	print_reverse(va_list args, t_format f);
+int print_reverse(va_list args, t_format f);
 
 #endif
